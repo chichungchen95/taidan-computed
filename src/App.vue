@@ -76,9 +76,9 @@ export default {
     // 計算電費
     duocap() {
       if(this.duoey === 1.68){
-        this.duocadd = this.taidal[0].price * this.duomon - this.taidal[0].price * this.taidal[0].name;
+        this.duocadd = this.duomon * this.taidal[0].price;
       } else if(this.duoey ===2.45){
-        this.duocadd = this.taidal[1].price * this.duomon - this.taidal[0].price * (this.taidal[1].name - this.taidal[0].name);
+        this.duocadd = this.taidal[1].price * this.duomon - this.taidal[0].price + this.taidal[0].price * this.taidal[0].name;
       } else if(this.duoey === 3.7){
         this.duocadd = this.taidal[2].price * (this.duomon-this.taidal[1].name) + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[0].price * this.taidal[0].name;
       } else if(this.duoey === 5.04){
