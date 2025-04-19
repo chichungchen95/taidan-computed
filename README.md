@@ -1,6 +1,21 @@
 # vue-volcap
 
-## Project setup
+## 個人說明
+此為vue3.js的練習
+主題為台電累積進價計算
+目的用於製作動態前端
+
+### 各參數說明
+```
+duo : 每日度數
+duomon : 2個月總度數
+duoey : 以度數對標價格
+duocadd : 2個月總累積電費
+
+taidal : 台電價格
+```
+
+## 官方建置教學
 ```
 npm install
 ```
@@ -20,5 +35,7 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### ps:
+```
+名稱隨便打的，想說練習而已xD，不過正式環境可不能這樣命名。
+```
