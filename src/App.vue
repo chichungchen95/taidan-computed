@@ -5,8 +5,8 @@
   <p>輸入時數(一天就打24hr)</p>
   <center><input type="text" v-model="hour" /></center>
   <hr/>
-  <p>每日度數: {{ duo }} 每2個月度數: {{ duomon }} 以 {{ duoey }} 累積電價</p>
-  <p>兩個月累積電費: {{ duocadd }}</p>
+  <p>每日度數: {{ duo.toFixed(1) }} 每2個月度數: {{ duomon.toFixed(1) }} 以 {{ duoey.toFixed(1) }} 累積電價</p>
+  <p>兩個月累積電費: {{ duocadd.toFixed(1) }}</p>
 </template>
 
 <script>
