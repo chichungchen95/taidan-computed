@@ -108,10 +108,11 @@ export default {
 
     // 減去已計算的度數
     remaining -= range;
-  }
+    } 
 
-  this.duocadd = total * 2; // 兩個月的電費
-  },
+    this.duocadd = total * 2; // 兩個月的電費
+    },
+  }
 }
 </script>
 
