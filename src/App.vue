@@ -25,7 +25,7 @@ export default {
           { name: 500, price: 3.7 },
           { name: 700, price: 5.04 },
           { name: 1000, price: 6.24 },
-          { name: 1001, price: 8.46 },
+          { name: 2000, price: 8.46 },
         ],
     }
   },
@@ -59,60 +59,37 @@ export default {
 
     // 計算度數電費
     duolist() {
-      if (this.duomon <120) {
+      if (this.duomon <240) {
         return this.duoey = 1.68;
-      } else if (this.duomon < 330) {
+      } else if (this.duomon < 660) {
         return this.duoey = 2.45;
-      } else if (this.duomon < 500) {
-        return this.duoey = 3.7;
-      } else if (this.duomon < 700) {
-        return this.duoey = 5.04;
       } else if (this.duomon < 1000) {
+        return this.duoey = 3.7;
+      } else if (this.duomon < 1400) {
+        return this.duoey = 5.04;
+      } else if (this.duomon < 2000) {
         return this.duoey = 6.24;
-      } else if (this.duomon < 1001) {
+      } else if (this.duomon > 2000) {
         return this.duoey = 8.46;
       }
    },
     // 計算電費
-    /*duocap() {
+    duocap() {
       if(this.duoey === 1.68){
-        this.duocadd = this.duomon * this.taidal[0].price * 2;
+        this.duocadd =  this.taidal[0].price * this.duomon;
       } else if(this.duoey ===2.45){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.duomon - (this.taidal[0].name * 2));
+        this.duocadd =  this.taidal[1].price * (this.duomon - 240) +  this.taidal[0].price * 240;
       } else if(this.duoey === 3.7){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.duomon - (this.taidal[1].name * 2));
+        this.duocadd =  this.taidal[2].price * (this.duomon - 660)  + this.taidal[1].price * 420 + this.taidal[0].price * 240;
       } else if(this.duoey === 5.04){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.taidal[2].name - (this.taidal[1].name * 2)) + this.taidal[3].price * (this.duomon - (this.taidal[2].name*2));
+        this.duocadd =  this.taidal[3].price * (this.duomon - 1000) + this.taidal[2].price * 340 + this.taidal[1].price * 420 + this.taidal[0].price * 240;
       } else if(this.duoey === 6.24){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.taidal[2].name - (this.taidal[1].name * 2)) + this.taidal[3].price * (this.taidal[3].name - (this.taidal[2].name*2)) + this.taidal[4].price * (this.duomon - (this.taidal[3].name *2));
+        this.duocadd = this.taidal[4].price * (this.duomon - 1400)  + this.taidal[3].price * 400 + this.taidal[2].price * 340 + this.taidal[1].price * 420 + this.taidal[0].price * 240;
       } else if(this.duoey === 8.46){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.taidal[2].name - (this.taidal[1].name * 2)) + this.taidal[3].price * (this.taidal[3].name - (this.taidal[2].name*2)) +  this.taidal[4].price * (this.taidal[4].name - (this.taidal[3].name*2)) + this.taidal[5].price * (this.duomon - (this.taidal[4].name*2));
+        this.duocadd = this.taidal[5].price * (this.duomon - 2000) + this.taidal[4].price * 600  + this.taidal[3].price * 400 + this.taidal[2].price * 340 + this.taidal[1].price * 420 + this.taidal[0].price * 240;
       }
     },
-  },*/
-  duocap() {
-  let total = 0;
-  let remaining = this.duomon;
-
-  for (let i = 0; i < this.taidal.length; i++) {
-    const current = this.taidal[i];
-    const next = this.taidal[i + 1];
-
-    if (remaining <= 0) break;
-
-    // 計算當前區間的度數
-    const range = next ? Math.min(remaining, next.name - current.name) : remaining;
-
-    // 累加當前區間的電費
-    total += range * current.price;
-
-    // 減去已計算的度數
-    remaining -= range;
-    } 
-
-    this.duocadd = total ; // 兩個月的電費
-    },
-  }
+  },
 }
 </script>
 
