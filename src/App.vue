@@ -5,7 +5,7 @@
   <p>輸入時數(一天就打24hr)</p>
   <center><input type="text" v-model="hour" /></center>
   <hr/>
-  <p>每日度數: {{ duo.toFixed(1) }} 每2個月度數: {{ duomon.toFixed(1) }} 以 {{ duoey.toFixed(1) }} 累積電價</p>
+  <p>每日度數: {{ duo.toFixed(1) }} 每2個月度數: {{ duomon.toFixed(1) }} 以 {{ duoey.toFixed(2) }} 累積電價</p>
   <p>兩個月累積電費: {{ duocadd.toFixed(1) }}</p>
 </template>
 
@@ -21,11 +21,11 @@ export default {
       taidal:
         [
           { name: 120, price: 1.68 },
-          { name: 330, price: 2.16 },
-          { name: 500, price: 3.03 },
-          { name: 700, price: 4.14 },
-          { name: 1000, price: 5.07 },
-          { name: 1001, price: 6.63 },
+          { name: 330, price: 2.45 },
+          { name: 500, price: 3.7 },
+          { name: 700, price: 5.04 },
+          { name: 1000, price: 6.24 },
+          { name: 1001, price: 8.46 },
         ],
     }
   },
@@ -78,15 +78,15 @@ export default {
       if(this.duoey === 1.68){
         this.duocadd = this.duomon * this.taidal[0].price;
       } else if(this.duoey ===2.45){
-        this.duocadd = this.taidal[1].price * this.duomon - this.taidal[0].price + this.taidal[0].price * this.taidal[0].name;
+        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.duomon - this.taidal[0].name);
       } else if(this.duoey === 3.7){
-        this.duocadd = this.taidal[2].price * (this.duomon-this.taidal[1].name) + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[0].price * this.taidal[0].name;
+        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[2].price * (this.duomon - this.taidal[1].name);
       } else if(this.duoey === 5.04){
-        this.duocadd = this.taidal[3].price * this.duomon - this.taidal[2].name + this.taidal[2].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[0].price * this.taidal[0].name;
+        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[2].price * (this.taidal[2].name - this.taidal[1].name) + this.taidal[3].price * (this.duomon - this.taidal[2].name);
       } else if(this.duoey === 6.24){
-        this.duocadd = this.taidal[4].price * this.duomon - this.taidal[3].name + this.taidal[3].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[0].price * this.taidal[0].name;
+        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[2].price * (this.taidal[2].name - this.taidal[1].name) + this.taidal[3].price * (this.taidal[3].name - this.taidal[2].name) + this.taidal[4].price * (this.duomon - this.taidal[3].name);
       } else if(this.duoey === 8.46){
-        this.duocadd = this.taidal[5].price * this.duomon - this.taidal[4].name + this.taidal[4].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[0].price * this.taidal[0].name;
+        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[2].price * (this.taidal[2].name - this.taidal[1].name) + this.taidal[3].price * (this.taidal[3].name - this.taidal[2].name) +  this.taidal[4].price * (this.taidal[4].name - this.taidal[3].name) + this.taidal[5].price * (this.duomon - this.taidal[4].name);
       }
     },
   },
