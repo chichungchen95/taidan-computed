@@ -21,11 +21,11 @@ export default {
       taidal:
         [
           { name: 120, price: 1.68 },
-          { name: 330, price: 2.45 },
-          { name: 500, price: 3.70 },
-          { name: 700, price: 5.04 },
-          { name: 1000, price: 6.24 },
-          { name: 1001, price: 8.46 },
+          { name: 330, price: 2.16 },
+          { name: 500, price: 3.03 },
+          { name: 700, price: 4.14 },
+          { name: 1000, price: 5.07 },
+          { name: 1001, price: 6.63 },
         ],
     }
   },
