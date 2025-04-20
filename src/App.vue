@@ -51,7 +51,7 @@ export default {
     },
     // 計算每個月度數
     duomon() {
-      return this.duo * 60 ;
+      return this.duo * 30 ;
     },
 
   },
