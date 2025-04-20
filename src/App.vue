@@ -51,7 +51,7 @@ export default {
     },
     // 計算每個月度數
     duomon() {
-      return this.duo * 30 ;
+      return this.duo * 60 ;
     },
 
   },
@@ -110,7 +110,7 @@ export default {
     remaining -= range;
     } 
 
-    this.duocadd = total * 2; // 兩個月的電費
+    this.duocadd = total ; // 兩個月的電費
     },
   }
 }
