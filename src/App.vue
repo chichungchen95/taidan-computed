@@ -76,17 +76,17 @@ export default {
     // 計算電費
     duocap() {
       if(this.duoey === 1.68){
-        this.duocadd = this.duomon * this.taidal[0].price;
+        this.duocadd = this.duomon * this.taidal[0].price * 2;
       } else if(this.duoey ===2.45){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.duomon - this.taidal[0].name);
+        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.duomon - (this.taidal[0].name * 2));
       } else if(this.duoey === 3.7){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[2].price * (this.duomon - this.taidal[1].name);
+        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.duomon - (this.taidal[1].name * 2));
       } else if(this.duoey === 5.04){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[2].price * (this.taidal[2].name - this.taidal[1].name) + this.taidal[3].price * (this.duomon - this.taidal[2].name);
+        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.taidal[2].name - (this.taidal[1].name * 2)) + this.taidal[3].price * (this.duomon - (this.taidal[2].name*2));
       } else if(this.duoey === 6.24){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[2].price * (this.taidal[2].name - this.taidal[1].name) + this.taidal[3].price * (this.taidal[3].name - this.taidal[2].name) + this.taidal[4].price * (this.duomon - this.taidal[3].name);
+        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.taidal[2].name - (this.taidal[1].name * 2)) + this.taidal[3].price * (this.taidal[3].name - (this.taidal[2].name*2)) + this.taidal[4].price * (this.duomon - (this.taidal[3].name *2));
       } else if(this.duoey === 8.46){
-        this.duocadd = this.taidal[0].name * this.taidal[0].price + this.taidal[1].price * (this.taidal[1].name - this.taidal[0].name) + this.taidal[2].price * (this.taidal[2].name - this.taidal[1].name) + this.taidal[3].price * (this.taidal[3].name - this.taidal[2].name) +  this.taidal[4].price * (this.taidal[4].name - this.taidal[3].name) + this.taidal[5].price * (this.duomon - this.taidal[4].name);
+        this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.taidal[2].name - (this.taidal[1].name * 2)) + this.taidal[3].price * (this.taidal[3].name - (this.taidal[2].name*2)) +  this.taidal[4].price * (this.taidal[4].name - (this.taidal[3].name*2)) + this.taidal[5].price * (this.duomon - (this.taidal[4].name*2));
       }
     },
   },
