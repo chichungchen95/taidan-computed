@@ -1,12 +1,38 @@
 <template>
-  <h3>計算電費</h3>
-  <p>輸入瓦數</p>
-  <center><input type="text" v-model="watt" /></center>
-  <p>輸入時數(一天就打24hr)</p>
-  <center><input type="text" v-model="hour" /></center>
-  <hr/>
-  <p>每日度數: {{ duo.toFixed(1) }} 每2個月度數: {{ duomon.toFixed(1) }} 以 {{ duoey.toFixed(2) }} 累積電價</p>
-  <p>兩個月累積電費: {{ duocadd.toFixed(1) }}</p>
+<div class="flex flex-col h-screen justify-between">
+  <header class="mb-10">
+  <UAlert
+    color="primary"
+    variant="subtle"
+    title="開源專案"
+    description="https://github.com/chichungchen95/taidan-computed"
+    icon="i-lucide-terminal"
+  />
+  </header>
+  <main class="mb-auto">
+    <h3>計算電費</h3>
+    <p>輸入瓦數</p>
+    <center><input type="text" v-model="watt" /></center>
+    <p>輸入時數(一天就打24hr)</p>
+    <center><input type="text" v-model="hour" /></center>
+    <hr class="mb-10"/>
+    <p>每日度數: {{ duo.toFixed(1) }} 每2個月度數: {{ duomon.toFixed(1) }} 以 {{ duoey.toFixed(2) }} 累積電價</p>
+    <p>兩個月累積電費: {{ duocadd.toFixed(1) }}</p>
+  </main>
+  <footer class="h-10">
+    <UButton
+    :avatar="{
+      src: 'https://github.com/github.png'
+    }"
+    to="https://github.com/chichungchen95/taidan-computed" target="_blank"
+    size="md"
+    color="neutral"
+    variant="outline"
+  >
+    Github
+  </UButton>
+  </footer>
+</div>
 </template>
 
 <script>
@@ -96,17 +122,17 @@ export default {
 <style>
 h3 {
   text-align: center;
-  color: #2c3e50;
+  color: #d8dde2;
   margin-bottom: 30px;
 }
 p {
   text-align: center;
-  color: #2c3e50;
+  color: #d8dde2;
   margin-bottom: 30px;
 }
 input {
   text-align: center;
-  color: #2c3e50;
+  color: #d8dde2;
   margin-bottom: 30px;
 }
 input[type="text"] {
@@ -117,42 +143,42 @@ input[type="text"] {
 }
 input[type="text"]:focus {
   outline: none;
-  border: 1px solid #2c3e50;
+  border: 1px solid #d8dde2;
 }
 input[type="text"]:hover {
-  border: 1px solid #2c3e50;
+  border: 1px solid #d8dde2;
 }
 input[type="text"]:active {
-  border: 1px solid #2c3e50;
+  border: 1px solid #d8dde2;
 }
 p:hover {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 p:active {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 p:focus {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 input[type="text"]:focus {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 input[type="text"]:hover {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 input[type="text"]:active {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 p:focus {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 p:hover {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 p:active {
-  color: #2c3e50;
+  color: #d8dde2;
 }
 input[type="text"]:focus {
-  color: #2c3e50;
+  color: #d8dde2;
 } 
 </style>
