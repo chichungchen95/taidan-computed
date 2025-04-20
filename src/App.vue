@@ -74,7 +74,7 @@ export default {
       }
    },
     // 計算電費
-    duocap() {
+    /*duocap() {
       if(this.duoey === 1.68){
         this.duocadd = this.duomon * this.taidal[0].price * 2;
       } else if(this.duoey ===2.45){
@@ -89,6 +89,28 @@ export default {
         this.duocadd = this.taidal[0].name * this.taidal[0].price * 2 + this.taidal[1].price * (this.taidal[1].name - (this.taidal[0].name * 2)) + this.taidal[2].price * (this.taidal[2].name - (this.taidal[1].name * 2)) + this.taidal[3].price * (this.taidal[3].name - (this.taidal[2].name*2)) +  this.taidal[4].price * (this.taidal[4].name - (this.taidal[3].name*2)) + this.taidal[5].price * (this.duomon - (this.taidal[4].name*2));
       }
     },
+  },*/
+  duocap() {
+  let total = 0;
+  let remaining = this.duomon;
+
+  for (let i = 0; i < this.taidal.length; i++) {
+    const current = this.taidal[i];
+    const next = this.taidal[i + 1];
+
+    if (remaining <= 0) break;
+
+    // 計算當前區間的度數
+    const range = next ? Math.min(remaining, next.name - current.name) : remaining;
+
+    // 累加當前區間的電費
+    total += range * current.price;
+
+    // 減去已計算的度數
+    remaining -= range;
+  }
+
+  this.duocadd = total * 2; // 兩個月的電費
   },
 }
 </script>
