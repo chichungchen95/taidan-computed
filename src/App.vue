@@ -17,7 +17,7 @@
     <center><input type="text" v-model="hour" /></center>
     <hr class="mb-10"/>
     <p>每日度數: {{ duo.toFixed(1) }} 每2個月度數: {{ duomon.toFixed(1) }} 以 {{ duoey.toFixed(2) }} 累積電價</p>
-    <p>兩個月累積電費: {{ duocadd.toFixed(1) }}</p>
+    <p>兩個月累積電費: {{ duocadd.toFixed(0) }}</p>
   </main>
   <footer class="h-10">
     <UButton
